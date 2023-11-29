@@ -17,4 +17,4 @@ services:
       context: ./server
       dockerfile: Dockerfile  # Assuming you have a Dockerfile in your ASP.NET project
     ports:
-      - '${SERVER_PORT}:${SERVER_PORT}'
+      - '${SERVER_PORT}:8080'
