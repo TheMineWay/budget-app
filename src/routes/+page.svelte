@@ -1,5 +1,4 @@
 <script lang="ts">
-	console.log('a');
 </script>
 
 <svelte:head>
