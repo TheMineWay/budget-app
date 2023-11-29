@@ -1,9 +1,9 @@
 version: '3'
 services:
-  web:
+  client:
     container_name: budgeter-client
     build:
-      context: .
+      context: ./client
       dockerfile: Dockerfile
     ports:
       - 3000:${PORT}
@@ -11,3 +11,10 @@ services:
       - .env
     volumes:
       - './ssl:/etc/nginx/cert'
+    
+  server:
+    build:
+      context: ./server
+      dockerfile: Dockerfile  # Assuming you have a Dockerfile in your ASP.NET project
+    ports:
+      - '80:${SERVER_PORT}'
