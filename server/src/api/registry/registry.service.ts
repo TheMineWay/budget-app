@@ -1,8 +1,14 @@
 import { Injectable } from '@nestjs/common';
 import { RegisterTransactionDTO } from '../../dtos/registry/register-transaction.dto';
-import { TransactionEntity } from '../../database/entities/transaction.entity';
+import {
+  TransactionAttributes,
+  TransactionEntity,
+} from '../../database/entities/transaction.entity';
 import { InjectModel } from '@nestjs/sequelize';
 import { UpdateTransactionDTO } from '../../dtos/registry/update-transaction.dto';
+import { ReadTransactionsDTO } from '../../dtos/registry/read-transactions.dto';
+import { WhereOptions } from 'sequelize';
+import { Op } from 'sequelize';
 
 @Injectable()
 export class RegistryService {
@@ -29,6 +35,18 @@ export class RegistryService {
   async deleteTransaction(transactionId: number) {
     return await this.transactionEntity.destroy({
       where: { id: transactionId },
+    });
+  }
+
+  async readTransactions({ limit, offset, text }: ReadTransactionsDTO) {
+    const where: WhereOptions<TransactionAttributes> = {};
+
+    if (text) where.description = { [Op.like]: text };
+
+    return await this.transactionEntity.findAndCountAll({
+      limit,
+      offset,
+      where,
     });
   }
 }

@@ -2,14 +2,17 @@ import {
   Body,
   Controller,
   Delete,
+  Get,
   Param,
   ParseIntPipe,
   Patch,
   Post,
+  Query,
 } from '@nestjs/common';
 import { RegistryService } from './registry.service';
 import { RegisterTransactionDTO } from '../../dtos/registry/register-transaction.dto';
 import { UpdateTransactionDTO } from '../../dtos/registry/update-transaction.dto';
+import { ReadTransactionsDTO } from '../../dtos/registry/read-transactions.dto';
 
 @Controller('registry')
 export class RegistryController {
@@ -33,5 +36,10 @@ export class RegistryController {
     @Param('transactionId', ParseIntPipe) transactionId: number,
   ) {
     return await this.registryService.deleteTransaction(transactionId);
+  }
+
+  @Get()
+  async readTransactions(@Query() query: ReadTransactionsDTO) {
+    return await this.registryService.readTransactions(query);
   }
 }
