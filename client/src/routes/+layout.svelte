@@ -4,20 +4,14 @@
 	import { BottomNav, BottomNavItem } from 'flowbite-svelte';
 	import { CloseSolid, HomeSolid, PlusSolid } from 'flowbite-svelte-icons';
 	import { I18nNamespace } from '../types/i18n/i18n-namespace.enum';
-	import { page } from '$app/stores';
 	import '../app.pcss';
 	import Authenticate from '../components/auth/authenticate.svelte';
 	import { clearAllCookies } from '../utils/cookies/clear-all-cookies';
 
+	const isAuthenticated = false;
+
 	const i18n = getI18nStore();
 	setContext('i18n', i18n);
-
-	const {
-		data: {
-			props: { isAuthenticated: _isAuthenticated }
-		}
-	} = $page;
-	const isAuthenticated: boolean = _isAuthenticated;
 
 	const logout = () => {
 		clearAllCookies();
