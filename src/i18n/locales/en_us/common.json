@@ -1,7 +1,8 @@
 {
     "layout": {
         "bottom-navigation": {
-            "Home": "Home"
+            "Home": "Home",
+            "Register": "Register"
         }
     }
 }
