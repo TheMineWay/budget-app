@@ -3,14 +3,13 @@
 	import { CloseSolid, HomeSolid, PlusSolid } from 'flowbite-svelte-icons';
 	import { I18nNamespace } from '../../types/i18n/i18n-namespace.enum';
 	import { i18nGetContext } from '../../i18n/i18n-context';
-	import { clearAllCookies } from '../../utils/cookies/clear-all-cookies';
 
 	export let setAuthenticated: (authenticated: boolean) => void;
 
 	const i18n = i18nGetContext();
 
 	const logout = () => {
-		clearAllCookies();
+		sessionStorage.removeItem('password');
 		setAuthenticated(false);
 	};
 </script>

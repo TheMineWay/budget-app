@@ -3,7 +3,6 @@
 	import { i18nGetContext } from '../../i18n/i18n-context';
 	import { I18nNamespace } from '../../types/i18n/i18n-namespace.enum';
 	import { LockOpenSolid } from 'flowbite-svelte-icons';
-	import { setCookie } from '../../utils/cookies/set-cookie';
 	import { testAuthMutation } from '../../mutations/auth/test-auth.mutation';
 
 	export let setAuthenticated: (authenticated: boolean) => void;
@@ -21,7 +20,7 @@
 	const onLogin = () => {
 		$mutation.mutate(passwordState, {
 			onSuccess: () => {
-				setCookie('password', passwordState, 1);
+				sessionStorage.setItem('password', passwordState);
 				setAuthenticated(true);
 			}
 		});
