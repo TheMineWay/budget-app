@@ -11,6 +11,6 @@ export class RegistryService {
   ) {}
 
   async registerTransaction(transaction: RegisterTransactionDTO) {
-    //awaitthis.transactionEntity.create(transaction);
+    await this.transactionEntity.create(transaction);
   }
 }
