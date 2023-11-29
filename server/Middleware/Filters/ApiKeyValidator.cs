@@ -2,7 +2,8 @@ public class ApiKeyValidator : IApiKeyValidator
 {
     public bool IsValid(string apiKey)
     {
-        return apiKey == "secret";
+        return apiKey == Environment.GetEnvironmentVariable("PASSWORD");
+        ;
     }
 }
 

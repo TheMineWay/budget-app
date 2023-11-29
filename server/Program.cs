@@ -1,6 +1,10 @@
+using dotenv.net;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
+DotEnv.Load();
 
 builder.Services.AddControllers();
 
