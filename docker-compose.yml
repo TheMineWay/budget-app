@@ -1,0 +1,13 @@
+version: '3'
+services:
+  web:
+    container_name: budgeter-client
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 3000:${PORT}
+    env_file:
+      - .env
+    volumes:
+      - './ssl:/etc/nginx/cert'
