@@ -12,5 +12,4 @@ i18next.init({
 	}
 });
 
-const i18n = createI18nStore(i18next);
-export default i18n;
+export default () => createI18nStore(i18next);
