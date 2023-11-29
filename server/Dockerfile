@@ -1,5 +1,5 @@
 # Use the appropriate .NET SDK image as a base
-FROM mcr.microsoft.com/dotnet/sdk:8.0
+FROM mcr.microsoft.com/dotnet/sdk:7.0
 
 # Set the working directory in the container
 WORKDIR /app

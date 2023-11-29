@@ -6,7 +6,7 @@ services:
       context: ./client
       dockerfile: Dockerfile
     ports:
-      - 3000:${PORT}
+      - ${CLIENT_PORT}:${CLIENT_PORT}
     env_file:
       - .env
     volumes:
@@ -17,4 +17,4 @@ services:
       context: ./server
       dockerfile: Dockerfile  # Assuming you have a Dockerfile in your ASP.NET project
     ports:
-      - '80:${SERVER_PORT}'
+      - '${SERVER_PORT}:${SERVER_PORT}'
