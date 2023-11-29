@@ -2,7 +2,8 @@
     "layout": {
         "bottom-navigation": {
             "Home": "Home",
-            "Register": "Register"
+            "Register": "Register",
+            "Exit": "Exit"
         }
     }
 }
