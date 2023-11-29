@@ -7,6 +7,7 @@ namespace api.Controllers;
 public class AuthenticationController : ControllerBase
 {
     [HttpGet("login")]
+    [ApiKey]
     public string Login()
     {
         return "TOKEN";
