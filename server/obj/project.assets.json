@@ -469,19 +469,19 @@
     ]
   },
   "packageFolders": {
-    "/home/joel_wsl/.nuget/packages/": {}
+    "/root/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/joel_wsl/repos/budget-app/server/api.csproj",
+      "projectUniqueName": "/app/api.csproj",
       "projectName": "api",
-      "projectPath": "/home/joel_wsl/repos/budget-app/server/api.csproj",
-      "packagesPath": "/home/joel_wsl/.nuget/packages/",
-      "outputPath": "/home/joel_wsl/repos/budget-app/server/obj/",
+      "projectPath": "/app/api.csproj",
+      "packagesPath": "/root/.nuget/packages/",
+      "outputPath": "/app/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/home/joel_wsl/.nuget/NuGet/NuGet.Config"
+        "/root/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net7.0"
@@ -533,7 +533,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/7.0.114/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/7.0.404/RuntimeIdentifierGraph.json"
       }
     }
   }
