@@ -15,7 +15,7 @@ import { UpdateTransactionDTO } from '../../dtos/registry/update-transaction.dto
 export class RegistryController {
   constructor(private readonly registryService: RegistryService) {}
 
-  @Post('register')
+  @Post()
   async registerTransaction(@Body() body: RegisterTransactionDTO) {
     return await this.registryService.registerTransaction(body);
   }
