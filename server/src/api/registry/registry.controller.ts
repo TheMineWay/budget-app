@@ -1,6 +1,7 @@
 import {
   Body,
   Controller,
+  Delete,
   Param,
   ParseIntPipe,
   Patch,
@@ -25,5 +26,12 @@ export class RegistryController {
     @Param('transactionId', ParseIntPipe) transactionId: number,
   ) {
     return await this.registryService.updateTransaction(transactionId, body);
+  }
+
+  @Delete(':transactionId')
+  async deleteTransaction(
+    @Param('transactionId', ParseIntPipe) transactionId: number,
+  ) {
+    return await this.registryService.deleteTransaction(transactionId);
   }
 }

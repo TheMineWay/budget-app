@@ -25,4 +25,10 @@ export class RegistryService {
       },
     });
   }
+
+  async deleteTransaction(transactionId: number) {
+    return await this.transactionEntity.destroy({
+      where: { id: transactionId },
+    });
+  }
 }
