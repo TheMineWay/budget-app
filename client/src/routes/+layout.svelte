@@ -17,7 +17,7 @@
 <div>
 	<QueryClientProvider client={queryClient}>
 		{#if isAuthenticated}
-			<NavLayout />
+			<NavLayout><slot /></NavLayout>
 		{:else}
 			<div class="flex justify-center align-center w-screen h-screen">
 				<div class="flex flex-col align-center justify-center"><Authenticate /></div>
