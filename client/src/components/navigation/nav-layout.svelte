@@ -5,11 +5,13 @@
 	import { i18nGetContext } from '../../i18n/i18n-context';
 	import { clearAllCookies } from '../../utils/cookies/clear-all-cookies';
 
+	export let setAuthenticated: (authenticated: boolean) => void;
+
 	const i18n = i18nGetContext();
 
 	const logout = () => {
 		clearAllCookies();
-		window.location.reload();
+		setAuthenticated(false);
 	};
 </script>
 

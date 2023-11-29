@@ -4,6 +4,9 @@
 	import { I18nNamespace } from '../../types/i18n/i18n-namespace.enum';
 	import { LockOpenSolid } from 'flowbite-svelte-icons';
 	import { setCookie } from '../../utils/cookies/set-cookie';
+	import { testAuthMutation } from '../../mutations/auth/test-auth.mutation';
+
+	export let setAuthenticated: (authenticated: boolean) => void;
 
 	const i18n = i18nGetContext();
 
@@ -13,25 +16,28 @@
 		passwordState = (e as HTMLInputElement)?.value ?? '';
 	};
 
+	const mutation = testAuthMutation();
+
 	const onLogin = () => {
-		setCookie('password', passwordState, 1);
-		window.location.reload();
+		$mutation.mutate(passwordState, {
+			onSuccess: () => {
+				setCookie('password', passwordState, 1);
+				setAuthenticated(true);
+			}
+		});
 	};
 </script>
 
 <div class="cont grid grid-cols-1 gap-3">
-	<form>
-		<FloatingLabelInput
-			style="outlined"
-			id="password"
-			name="password"
-			type="password"
-			on:change={(e) => onValueChange(e.target)}
-		>
-			{$i18n.t(`${I18nNamespace.AUTH}.form.Password`)}
-		</FloatingLabelInput>
-	</form>
-	<Button ico class="login" on:click={onLogin}
+	<FloatingLabelInput
+		style="outlined"
+		id="password"
+		type="password"
+		on:change={(e) => onValueChange(e.target)}
+	>
+		{$i18n.t(`${I18nNamespace.AUTH}.form.Password`)}
+	</FloatingLabelInput>
+	<Button ico on:click={onLogin}
 		><LockOpenSolid class="w-3.5 h-3.5 mr-2" />{$i18n.t(`${I18nNamespace.AUTH}.form.Login`)}</Button
 	>
 </div>
@@ -39,9 +45,5 @@
 <style lang="postcss">
 	div.cont {
 		width: 20em;
-	}
-
-	.login {
-		width: 100%;
 	}
 </style>

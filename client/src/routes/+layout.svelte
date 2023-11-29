@@ -6,7 +6,7 @@
 	import { QueryClient, QueryClientProvider } from '@tanstack/svelte-query';
 	import '../app.pcss';
 
-	const isAuthenticated = false;
+	$: isAuthenticated = false;
 
 	const i18n = getI18nStore();
 	setContext('i18n', i18n);
@@ -17,10 +17,12 @@
 <div>
 	<QueryClientProvider client={queryClient}>
 		{#if isAuthenticated}
-			<NavLayout><slot /></NavLayout>
+			<NavLayout setAuthenticated={(auth) => (isAuthenticated = auth)}><slot /></NavLayout>
 		{:else}
 			<div class="flex justify-center align-center w-screen h-screen">
-				<div class="flex flex-col align-center justify-center"><Authenticate /></div>
+				<div class="flex flex-col align-center justify-center">
+					<Authenticate setAuthenticated={(auth) => (isAuthenticated = auth)} />
+				</div>
 			</div>
 		{/if}</QueryClientProvider
 	>
