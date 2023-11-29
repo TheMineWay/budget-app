@@ -21,7 +21,7 @@ export interface TransactionCreateAttributes
   extends Omit<TransactionAttributes, 'id'> {}
 
 @Table({
-  tableName: 'transaction',
+  tableName: 'transactions',
   createdAt: 'created_at',
   updatedAt: false,
 })
