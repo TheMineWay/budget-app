@@ -4,6 +4,7 @@ import { SequelizeModule } from '@nestjs/sequelize';
 import { ApiKeyGuard, ApiKeysModule } from 'nestjs-api-keys';
 import { TransactionEntity } from './database/entities/transaction.entity';
 import { CategoryEntity } from './database/entities/category.entity';
+import { RegistryModule } from './api/registry/registry.module';
 
 @Module({
   imports: [
@@ -15,6 +16,7 @@ import { CategoryEntity } from './database/entities/category.entity';
           permissions: ['use'],
         },
       ],
+      apiKeyHeader: 'password',
     }),
     SequelizeModule.forRoot({
       dialect: 'mysql',
@@ -25,11 +27,12 @@ import { CategoryEntity } from './database/entities/category.entity';
       database: process.env.DBNAME,
       models: [TransactionEntity, CategoryEntity],
     }),
+    RegistryModule,
   ],
   providers: [
     {
-      useValue: APP_GUARD,
-      provide: ApiKeyGuard({ permissions: ['use'] }),
+      provide: APP_GUARD,
+      useClass: ApiKeyGuard({ permissions: ['use'] }),
     },
   ],
 })
