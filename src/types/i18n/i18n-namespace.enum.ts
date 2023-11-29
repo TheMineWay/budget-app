@@ -1,3 +1,4 @@
 export enum I18nNamespace {
-	COMMON = 'common'
+	COMMON = 'common',
+	AUTH = 'auth'
 }
