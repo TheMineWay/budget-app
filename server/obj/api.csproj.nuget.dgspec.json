@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/app/api.csproj": {}
+    "/home/joel_wsl/repos/budget-app/server/api.csproj": {}
   },
   "projects": {
-    "/app/api.csproj": {
+    "/home/joel_wsl/repos/budget-app/server/api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/app/api.csproj",
+        "projectUniqueName": "/home/joel_wsl/repos/budget-app/server/api.csproj",
         "projectName": "api",
-        "projectPath": "/app/api.csproj",
-        "packagesPath": "/root/.nuget/packages/",
-        "outputPath": "/app/obj/",
+        "projectPath": "/home/joel_wsl/repos/budget-app/server/api.csproj",
+        "packagesPath": "/home/joel_wsl/.nuget/packages/",
+        "outputPath": "/home/joel_wsl/repos/budget-app/server/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/root/.nuget/NuGet/NuGet.Config"
+          "/home/joel_wsl/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
@@ -41,6 +41,14 @@
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
               "version": "[7.0.14, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[7.0.2, )"
+            },
+            "Pomelo.EntityFrameworkCore.MySql": {
+              "target": "Package",
+              "version": "[7.0.0, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
@@ -70,7 +78,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/7.0.404/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/7.0.114/RuntimeIdentifierGraph.json"
         }
       }
     }
