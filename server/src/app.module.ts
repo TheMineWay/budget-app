@@ -5,6 +5,7 @@ import { ApiKeyGuard, ApiKeysModule } from 'nestjs-api-keys';
 import { TransactionEntity } from './database/entities/transaction.entity';
 import { CategoryEntity } from './database/entities/category.entity';
 import { RegistryModule } from './api/registry/registry.module';
+import { AuthModule } from './api/auth/auth.module';
 
 @Module({
   imports: [
@@ -28,6 +29,7 @@ import { RegistryModule } from './api/registry/registry.module';
       models: [TransactionEntity, CategoryEntity],
     }),
     RegistryModule,
+    AuthModule,
   ],
   providers: [
     {
