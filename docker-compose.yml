@@ -15,6 +15,13 @@ services:
   server:
     build:
       context: ./server
-      dockerfile: Dockerfile  # Assuming you have a Dockerfile in your ASP.NET project
+      dockerfile: Dockerfile
+    env_file:
+      - .env
     ports:
-      - '${SERVER_PORT}:8080'
+      - '${SERVER_PORT}:${SERVER_PORT}'
+    volumes:
+      - ./server/src:/app/src
+      - ./server/certificates:/app/certificates
+    expose:
+      - '${SERVER_PORT}'

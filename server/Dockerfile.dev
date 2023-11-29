@@ -1,17 +1,18 @@
-# Use the appropriate .NET SDK image as a base
-FROM mcr.microsoft.com/dotnet/sdk:7.0
-
-# Set the working directory in the container
+FROM node:20.9-alpine3.18
 WORKDIR /app
 
-# Copy the backend files to the working directory
+# Install app dependencies
+# A wildcard is used to ensure both package.json AND package-lock.json are copied
+# where available (npm@5+)
+COPY package*.json ./
+
+RUN npm install
+
+# If you are building your code for production
+# RUN npm ci --only=production
+
+# Bundle app source
 COPY . .
 
-# Restore dependencies
-RUN dotnet restore
-
-# Expose the port your ASP.NET app runs on
-EXPOSE 8080
-
-# Start the app in development mode
-CMD ["dotnet", "watch", "run", "--urls", "http://0.0.0.0:8080"]
+EXPOSE $PORT
+CMD [ "npm", "run", "start:dev" ]
