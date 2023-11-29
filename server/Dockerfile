@@ -12,7 +12,7 @@ RUN dotnet restore
 RUN dotnet build -c Release
 
 # Expose the port your ASP.NET app runs on
-EXPOSE 80
+EXPOSE 8080
 
 # Set the command to start the app
 CMD ["dotnet", "run", "--urls", "http://0.0.0.0:80"]

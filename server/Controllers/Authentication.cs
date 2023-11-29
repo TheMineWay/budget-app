@@ -1,12 +1,12 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace api.Controllers;
+namespace server.Controllers;
 
 [ApiController]
-[Route("auth")]
+[Route("[controller]")]
 public class AuthenticationController : ControllerBase
 {
-    [HttpGet("login")]
+    [HttpPost()]
     [ApiKey]
     public string Login()
     {
