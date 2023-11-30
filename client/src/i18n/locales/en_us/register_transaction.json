@@ -1,0 +1,20 @@
+{
+    "Title": "Register transaction",
+    "actions": {
+        "Register": "Register"
+    },
+    "fields": {
+        "amount": {
+            "Label": "Amount"
+        },
+        "category": {
+            "Label": "Category"
+        },
+        "description": {
+            "Label": "Description"
+        },
+        "transactionTime": {
+            "Label": "Date"
+        }
+    }
+}

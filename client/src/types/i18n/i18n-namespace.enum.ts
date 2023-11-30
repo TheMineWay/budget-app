@@ -1,4 +1,5 @@
 export enum I18nNamespace {
 	COMMON = 'common',
-	AUTH = 'auth'
+	AUTH = 'auth',
+	REGISTER_TRANSACTION = 'r_transaction'
 }
