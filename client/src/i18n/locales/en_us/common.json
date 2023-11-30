@@ -1,7 +1,6 @@
 {
     "layout": {
         "bottom-navigation": {
-            "Home": "Home",
             "Register": "Register",
             "Exit": "Exit"
         }

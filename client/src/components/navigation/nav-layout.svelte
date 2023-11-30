@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { BottomNav, BottomNavItem } from 'flowbite-svelte';
-	import { CloseSolid, HomeSolid, PlusSolid } from 'flowbite-svelte-icons';
+	import { CloseSolid, PlusSolid } from 'flowbite-svelte-icons';
 	import { I18nNamespace } from '../../types/i18n/i18n-namespace.enum';
 	import { i18nGetContext } from '../../i18n/i18n-context';
 	import RegisterTransactionModal from '../transactions/register/register-transaction-modal.svelte';
@@ -25,12 +25,7 @@
 		visible={isRegisterTransactionVisible}
 	/>
 
-	<BottomNav position="absolute" classInner="grid-cols-3">
-		<BottomNavItem btnName={$i18n.t(`${I18nNamespace.COMMON}.layout.bottom-navigation.Home`)}>
-			<HomeSolid
-				class="w-5 h-5 mb-1 text-gray-500 dark:text-gray-400 group-hover:text-primary-600 dark:group-hover:text-primary-500"
-			/>
-		</BottomNavItem>
+	<BottomNav position="absolute" classInner="grid-cols-2">
 		<BottomNavItem
 			on:click={() => (isRegisterTransactionVisible = true)}
 			btnName={$i18n.t(`${I18nNamespace.COMMON}.layout.bottom-navigation.Register`)}
