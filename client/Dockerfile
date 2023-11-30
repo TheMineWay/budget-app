@@ -1,22 +1,23 @@
 # Stage 1: Build React app
 FROM node:20.6.1-alpine3.18 as build
-WORKDIR /app
 
+# Set the working directory inside the container
+WORKDIR /usr/src/app
+
+# Copy package.json and package-lock.json to the working directory
 COPY package*.json ./
+
+# Install dependencies
 RUN npm install
+
+# Copy the entire app directory to the working directory
 COPY . .
 
+# Build the SvelteKit app for production
 RUN npm run build
 
-# Stage 2: Serve React app with Nginx
-FROM nginx:latest
-COPY --from=build /app/dist /usr/share/nginx/html
-COPY nginx.conf /etc/nginx/conf.d/default.conf
+# Expose the port your app runs on
+EXPOSE 3000
 
-# Copy SSL certificate and key
-COPY ./ssl/certificate.crt /etc/nginx/cert/
-COPY ./ssl/private.key /etc/nginx/cert/
-
-EXPOSE 8003
-
-CMD ["nginx", "-g", "daemon off;"]
+# Set the command to start the app
+CMD ["npm", "run", "preview", "--", "--port", "3000", "--host", "0.0.0.0"]
