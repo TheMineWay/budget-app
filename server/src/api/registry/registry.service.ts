@@ -9,12 +9,15 @@ import { UpdateTransactionDTO } from '../../dtos/registry/update-transaction.dto
 import { ReadTransactionsDTO } from '../../dtos/registry/read-transactions.dto';
 import { WhereOptions } from 'sequelize';
 import { Op } from 'sequelize';
+import { CategoryEntity } from '../../database/entities/category.entity';
 
 @Injectable()
 export class RegistryService {
   constructor(
     @InjectModel(TransactionEntity)
     private readonly transactionEntity: typeof TransactionEntity,
+    @InjectModel(CategoryEntity)
+    private readonly categoryEntity: typeof CategoryEntity,
   ) {}
 
   async registerTransaction(transaction: RegisterTransactionDTO) {
@@ -48,5 +51,9 @@ export class RegistryService {
       offset,
       where,
     });
+  }
+
+  async getCategories() {
+    return await this.categoryEntity.findAll();
   }
 }

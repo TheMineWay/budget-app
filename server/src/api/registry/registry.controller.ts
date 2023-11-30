@@ -42,4 +42,9 @@ export class RegistryController {
   async readTransactions(@Query() query: ReadTransactionsDTO) {
     return await this.registryService.readTransactions(query);
   }
+
+  @Get('categories')
+  async getCategories() {
+    return await this.registryService.getCategories();
+  }
 }
