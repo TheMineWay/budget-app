@@ -8,13 +8,23 @@
 
 	const i18n = i18nGetContext();
 
-	$: limit = 20;
+	$: limit = 10;
 	$: offset = 0;
 
-	const transactionsList = transactionsQuery({ limit, offset });
+	$: transactionsList = transactionsQuery({ limit, offset });
+	$: total = $transactionsList.data?.count ?? 0;
 
 	const categories = categoriesQuery();
 	$: rows = $transactionsList.data?.rows ?? [];
+
+	const onNext = () => {
+		if (total > offset + limit) offset += limit;
+	};
+	const onPrevious = () => {
+		let newOffset = offset - limit;
+		if (newOffset < 0) newOffset = 0;
+		offset = newOffset;
+	};
 </script>
 
 <div class="h-screen">
@@ -37,8 +47,9 @@
 			})}
 		</div>
 
-		<Pagination table>
-			<span slot="prev">Prev</span>
+		<Pagination table on:next={onNext} on:previous={onPrevious}>
+			<span slot="prev">{$i18n.t(`${I18nNamespace.TRANSACTIONS_LIST}.pagination.Previous`)}</span>
+			<span slot="next">{$i18n.t(`${I18nNamespace.TRANSACTIONS_LIST}.pagination.Next`)}</span>
 		</Pagination>
 	</div>
 </div>

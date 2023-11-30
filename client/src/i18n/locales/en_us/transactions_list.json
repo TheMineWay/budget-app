@@ -1,5 +1,7 @@
 {
     "pagination": {
-        "Message": "Showing {{from}} to {{to}} of {{count}} entries"
+        "Message": "Showing {{from}} to {{to}} of {{count}} entries",
+        "Previous": "Prev",
+        "Next": "Next"
     }
 }
