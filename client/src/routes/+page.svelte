@@ -1,4 +1,5 @@
 <script lang="ts">
+	import TransactionsList from '../components/transactions/list/transactions-list.svelte';
 </script>
 
 <svelte:head>
@@ -6,7 +7,9 @@
 	<meta name="description" content="Budgeter app" />
 </svelte:head>
 
-<section></section>
+<section>
+	<TransactionsList />
+</section>
 
 <style>
 </style>

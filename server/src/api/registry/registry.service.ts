@@ -44,12 +44,14 @@ export class RegistryService {
   async readTransactions({ limit, offset, text }: ReadTransactionsDTO) {
     const where: WhereOptions<TransactionAttributes> = {};
 
-    if (text) where.description = { [Op.like]: text };
+    if (text)
+      where.description = { [Op.like]: `%${text.replaceAll('%', '\\%')}%` };
 
     return await this.transactionEntity.findAndCountAll({
       limit,
       offset,
       where,
+      order: [['transactionTime', 'DESC']],
     });
   }
 
