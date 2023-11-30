@@ -17,5 +17,5 @@ COPY . .
 # Build image
 RUN npm run build
 
-EXPOSE $PORT
+EXPOSE $SERVER_PORT
 CMD [ "node", "dist/main.js" ]
