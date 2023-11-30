@@ -6,7 +6,7 @@
 	import { QueryClient, QueryClientProvider } from '@tanstack/svelte-query';
 	import '../app.pcss';
 
-	$: isAuthenticated = true; // DEBUG
+	$: isAuthenticated = false;
 
 	const i18n = getI18nStore();
 	setContext('i18n', i18n);
