@@ -20,4 +20,4 @@ RUN npm run build
 EXPOSE $CLIENT_PORT
 
 # Set the command to start the app
-CMD ["npm", "run", "preview", "--", "--port", "${CLIENT_PORT}", "--host", "0.0.0.0"]
+CMD ["npm", "run", "preview", "--", "--port", "3000", "--host", "0.0.0.0"]
