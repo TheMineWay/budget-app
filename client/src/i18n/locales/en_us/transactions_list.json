@@ -1,0 +1,5 @@
+{
+    "pagination": {
+        "Message": "Showing {{from}} to {{to}} of {{count}} entries"
+    }
+}

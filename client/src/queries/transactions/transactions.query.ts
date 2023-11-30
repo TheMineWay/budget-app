@@ -2,7 +2,7 @@ import { createQuery } from '@tanstack/svelte-query';
 import axios from 'axios';
 import { PUBLIC_SERVER_HOST } from '$env/static/public';
 
-interface Transaction {
+export interface Transaction {
 	id: number;
 	amount: number;
 	description: string;
