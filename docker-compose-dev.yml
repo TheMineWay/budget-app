@@ -8,7 +8,7 @@ services:
     volumes:
       - .:/client/app
     ports:
-      - ${CLIENT_PORT}:${CLIENT_PORT}
+      - ${CLIENT_PORT}:3000
     command: "npm run dev"
     environment:
       - CHOKIDAR_USEPOLLING=true
@@ -21,7 +21,7 @@ services:
     env_file:
       - .env
     ports:
-      - '${SERVER_PORT}:${SERVER_PORT}'
+      - '${SERVER_PORT}:3001'
     volumes:
       - ./server/src:/app/src
       - ./server/certificates:/app/certificates

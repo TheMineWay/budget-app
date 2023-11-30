@@ -19,7 +19,7 @@ services:
     env_file:
       - .env
     ports:
-      - '${SERVER_PORT}:${SERVER_PORT}'
+      - '${SERVER_PORT}:3001'
     volumes:
       - ./server/src:/app/src
       - ./server/certificates:/app/certificates
